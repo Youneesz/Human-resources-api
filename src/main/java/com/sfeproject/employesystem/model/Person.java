@@ -1,10 +1,16 @@
 package com.sfeproject.employesystem.model;
-
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Date;
 
+@Entity
 public class Person {
-    private int SOM;
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
+    private int SOM;
     private char sexe;
     private String nom;
     private String prenom;
@@ -15,9 +21,8 @@ public class Person {
     private Date dateRec;
     private String cadre;
 
-    public Person(int SOM, int id, char sexe, String nom, String prenom, String telephone, String lieuEmp, String lieuHabit, String password, Date dateRec, String cadre) {
+    public Person(int SOM, char sexe, String nom, String prenom, String telephone, String lieuEmp, String lieuHabit, String password, Date dateRec, String cadre) {
         this.SOM = SOM;
-        this.id = id;
         this.sexe = sexe;
         this.nom = nom;
         this.prenom = prenom;
@@ -27,6 +32,10 @@ public class Person {
         this.password = password;
         this.dateRec = dateRec;
         this.cadre = cadre;
+    }
+
+    public Person() {
+
     }
 
     public int getSOM() {
