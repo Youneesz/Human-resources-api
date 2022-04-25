@@ -1,7 +1,5 @@
 package com.sfeproject.employesystem.model;
 
-import lombok.Data;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,7 +7,6 @@ import javax.persistence.Table;
 import java.io.Serializable;
 import java.sql.Date;
 
-@Data
 @Entity
 @Table(name = "demande_conge")
 public class DemandeConge implements Serializable {

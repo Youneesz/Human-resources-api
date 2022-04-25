@@ -1,12 +1,9 @@
 package com.sfeproject.employesystem.model;
 
-import lombok.Data;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-@Data
 @Entity
 @Table(name = "person")
 public class Person implements Serializable {
