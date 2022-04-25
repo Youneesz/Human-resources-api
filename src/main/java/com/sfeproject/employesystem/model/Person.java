@@ -1,128 +1,54 @@
 package com.sfeproject.employesystem.model;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import lombok.Data;
+
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
+@Data
 @Entity
-public class Person {
+@Table(name = "person")
+public class Person implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private int id;
-    private int SOM;
-    private char sexe;
-    private String nom;
-    private String prenom;
-    private String telephone;
-    private String lieuEmp;
-    private String lieuHabit;
-    private String password;
-    private Date dateRec;
+    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(name = "dtype", nullable = false)
+    private String dtype;
+
+    @Column(name = "som", nullable = false)
+    private Integer som;
+
+    @Column(name = "cadre")
     private String cadre;
 
-    public Person(int SOM, char sexe, String nom, String prenom, String telephone, String lieuEmp, String lieuHabit, String password, Date dateRec, String cadre) {
-        this.SOM = SOM;
-        this.sexe = sexe;
-        this.nom = nom;
-        this.prenom = prenom;
-        this.telephone = telephone;
-        this.lieuEmp = lieuEmp;
-        this.lieuHabit = lieuHabit;
-        this.password = password;
-        this.dateRec = dateRec;
-        this.cadre = cadre;
-    }
+    @Column(name = "date_rec")
+    private Date dateRec;
 
-    public Person() {
+    @Column(name = "lieu_emp")
+    private String lieuEmp;
 
-    }
+    @Column(name = "lieu_habit")
+    private String lieuHabit;
 
-    public int getSOM() {
-        return SOM;
-    }
+    @Column(name = "nom")
+    private String nom;
 
-    public void setSOM(int SOM) {
-        this.SOM = SOM;
-    }
+    @Column(name = "password")
+    private String password;
 
-    public int getId() {
-        return id;
-    }
+    @Column(name = "prenom")
+    private String prenom;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    @Column(name = "sexe", nullable = false)
+    private String sexe;
 
-    public char getSexe() {
-        return sexe;
-    }
+    @Column(name = "telephone")
+    private String telephone;
 
-    public void setSexe(char sexe) {
-        this.sexe = sexe;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public String getPrenom() {
-        return prenom;
-    }
-
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
-
-    public String getTelephone() {
-        return telephone;
-    }
-
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
-
-    public String getLieuEmp() {
-        return lieuEmp;
-    }
-
-    public void setLieuEmp(String lieuEmp) {
-        this.lieuEmp = lieuEmp;
-    }
-
-    public String getLieuHabit() {
-        return lieuHabit;
-    }
-
-    public void setLieuHabit(String lieuHabit) {
-        this.lieuHabit = lieuHabit;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Date getDateRec() {
-        return dateRec;
-    }
-
-    public void setDateRec(Date dateRec) {
-        this.dateRec = dateRec;
-    }
-
-    public String getCadre() {
-        return cadre;
-    }
-
-    public void setCadre(String cadre) {
-        this.cadre = cadre;
-    }
 }
