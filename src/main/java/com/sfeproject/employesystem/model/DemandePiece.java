@@ -1,13 +1,11 @@
 package com.sfeproject.employesystem.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 @Entity
 @Table(name = "demande_piece")
+@IdClass(DemandePieceId.class)
 public class DemandePiece implements Serializable {
 
     private static final long serialVersionUID = 1L;

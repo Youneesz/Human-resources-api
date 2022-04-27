@@ -1,8 +1,6 @@
 package com.sfeproject.employesystem.model;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.sql.Date;
 
 @MappedSuperclass
@@ -10,6 +8,7 @@ public class Personne {
     private static final long serialVersionUID = 1L;
 
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "CODE_EMP", nullable = false)
     private Integer codeEmp;
 
@@ -49,19 +48,110 @@ public class Personne {
     @Column(name = "CIN_EMP")
     private String cinEmp;
 
-    public Personne(String sexeEmp, Date dateRecrutement, String prenomEmp, String nomEmp, String telEmp, String emailEmp, String adresseEmp, String adresseTravail, String motPasse, String cinEmp) {
-        this.sexeEmp = sexeEmp;
-        this.dateRecrutement = dateRecrutement;
-        this.prenomEmp = prenomEmp;
-        this.nomEmp = nomEmp;
-        this.telEmp = telEmp;
-        this.emailEmp = emailEmp;
-        this.adresseEmp = adresseEmp;
-        this.adresseTravail = adresseTravail;
-        this.motPasse = motPasse;
-        this.cinEmp = cinEmp;
+    public Personne() {
     }
 
-    public Personne() {
+    public Integer getCodeEmp() {
+        return codeEmp;
+    }
+
+    public Integer getCodeRole() {
+        return codeRole;
+    }
+
+    public Integer getCodeSomme() {
+        return codeSomme;
+    }
+
+    public void setCodeEmp(Integer codeEmp) {
+        this.codeEmp = codeEmp;
+    }
+
+    public void setCodeRole(Integer codeRole) {
+        this.codeRole = codeRole;
+    }
+
+    public void setCodeSomme(Integer codeSomme) {
+        this.codeSomme = codeSomme;
+    }
+
+    public String getSexeEmp() {
+        return sexeEmp;
+    }
+
+    public void setSexeEmp(String sexeEmp) {
+        this.sexeEmp = sexeEmp;
+    }
+
+    public Date getDateRecrutement() {
+        return dateRecrutement;
+    }
+
+    public void setDateRecrutement(Date dateRecrutement) {
+        this.dateRecrutement = dateRecrutement;
+    }
+
+    public String getPrenomEmp() {
+        return prenomEmp;
+    }
+
+    public void setPrenomEmp(String prenomEmp) {
+        this.prenomEmp = prenomEmp;
+    }
+
+    public String getNomEmp() {
+        return nomEmp;
+    }
+
+    public void setNomEmp(String nomEmp) {
+        this.nomEmp = nomEmp;
+    }
+
+    public String getTelEmp() {
+        return telEmp;
+    }
+
+    public void setTelEmp(String telEmp) {
+        this.telEmp = telEmp;
+    }
+
+    public String getEmailEmp() {
+        return emailEmp;
+    }
+
+    public void setEmailEmp(String emailEmp) {
+        this.emailEmp = emailEmp;
+    }
+
+    public String getAdresseEmp() {
+        return adresseEmp;
+    }
+
+    public void setAdresseEmp(String adresseEmp) {
+        this.adresseEmp = adresseEmp;
+    }
+
+    public String getAdresseTravail() {
+        return adresseTravail;
+    }
+
+    public void setAdresseTravail(String adresseTravail) {
+        this.adresseTravail = adresseTravail;
+    }
+
+    public String getMotPasse() {
+        return motPasse;
+    }
+
+    public void setMotPasse(String motPasse) {
+        this.motPasse = motPasse;
+    }
+
+    public String getCinEmp() {
+        return cinEmp;
+    }
+
+    public void setCinEmp(String cinEmp) {
+        this.cinEmp = cinEmp;
     }
 }

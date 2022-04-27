@@ -13,10 +13,6 @@ public class Employe extends Personne implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Employe(String sexeEmp, Date dateRecrutement, String prenomEmp, String nomEmp, String telEmp, String emailEmp, String adresseEmp, String adresseTravail, String motPasse, String cinEmp) {
-        super(sexeEmp, dateRecrutement, prenomEmp, nomEmp, telEmp, emailEmp, adresseEmp, adresseTravail, motPasse, cinEmp);
-    }
-
     public Employe() {
         super();
     }
