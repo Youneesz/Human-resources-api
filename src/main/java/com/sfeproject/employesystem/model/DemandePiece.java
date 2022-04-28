@@ -3,10 +3,23 @@ package com.sfeproject.employesystem.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
+
 @Entity
 @Table(name = "demande_piece")
 @IdClass(DemandePieceId.class)
 public class DemandePiece implements Serializable {
+
+    public DemandePiece(Integer numDemande, Integer codeEmp, Integer codePiece, Date dateDemande, Date dateEtat, String etatDemande, String motifRefus) {
+        this.numDemande = numDemande;
+        this.codeEmp = codeEmp;
+        this.codePiece = codePiece;
+        this.dateDemande = dateDemande;
+        this.dateEtat = dateEtat;
+        this.etatDemande = etatDemande;
+        this.motifRefus = motifRefus;
+    }
+
+    public DemandePiece() {}
 
     private static final long serialVersionUID = 1L;
 

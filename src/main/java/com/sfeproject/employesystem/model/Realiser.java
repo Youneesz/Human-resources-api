@@ -7,6 +7,16 @@ import java.sql.Date;
 @IdClass(RealiserId.class)
 public class Realiser implements Serializable {
 
+    public Realiser(Integer codeEmp, Integer codeTache, Integer codeBureau, Integer numAffectation, Date dateAffectation) {
+        this.codeEmp = codeEmp;
+        this.codeTache = codeTache;
+        this.codeBureau = codeBureau;
+        this.numAffectation = numAffectation;
+        this.dateAffectation = dateAffectation;
+    }
+
+    public Realiser() {}
+
     private static final long serialVersionUID = 1L;
 
     @Id

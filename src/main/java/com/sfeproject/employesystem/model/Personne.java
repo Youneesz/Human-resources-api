@@ -7,6 +7,22 @@ import java.sql.Date;
 public class Personne {
     private static final long serialVersionUID = 1L;
 
+    public Personne(Integer codeEmp, Integer codeRole, Integer codeSomme, String sexeEmp, Date dateRecrutement, String prenomEmp, String nomEmp, String telEmp, String emailEmp, String adresseEmp, String adresseTravail, String motPasse, String cinEmp) {
+        this.codeEmp = codeEmp;
+        this.codeRole = codeRole;
+        this.codeSomme = codeSomme;
+        this.sexeEmp = sexeEmp;
+        this.dateRecrutement = dateRecrutement;
+        this.prenomEmp = prenomEmp;
+        this.nomEmp = nomEmp;
+        this.telEmp = telEmp;
+        this.emailEmp = emailEmp;
+        this.adresseEmp = adresseEmp;
+        this.adresseTravail = adresseTravail;
+        this.motPasse = motPasse;
+        this.cinEmp = cinEmp;
+    }
+
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "CODE_EMP", nullable = false)

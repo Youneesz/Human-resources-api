@@ -9,6 +9,21 @@ import java.sql.Date;
 @IdClass(DemandeCongeId.class)
 public class DemandeConge implements Serializable {
 
+    public DemandeConge(Integer numDemande, Integer codeConge, Integer codeEmp, Date dateDemande, Integer EXERCICE, Date dateDebut, Date dateFin, Date dateEtat, String ETAT, String MOTIF) {
+        this.numDemande = numDemande;
+        this.codeConge = codeConge;
+        this.codeEmp = codeEmp;
+        this.dateDemande = dateDemande;
+        this.EXERCICE = EXERCICE;
+        this.dateDebut = dateDebut;
+        this.dateFin = dateFin;
+        this.dateEtat = dateEtat;
+        this.ETAT = ETAT;
+        this.MOTIF = MOTIF;
+    }
+
+    public DemandeConge() {}
+
     private static final long serialVersionUID = 1L;
 
     @Id

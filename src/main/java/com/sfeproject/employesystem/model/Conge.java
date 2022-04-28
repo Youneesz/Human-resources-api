@@ -1,9 +1,6 @@
 package com.sfeproject.employesystem.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 @Entity
 @Table(name = "conge")
@@ -12,6 +9,7 @@ public class Conge implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "CODE_CONGE", nullable = false)
     private Integer codeConge;
 

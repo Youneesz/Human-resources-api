@@ -1,9 +1,6 @@
 package com.sfeproject.employesystem.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 
@@ -11,9 +8,19 @@ import java.sql.Date;
 @Table(name = "actualite")
 public class Actualite implements Serializable {
 
+    public Actualite() {}
+
+    public Actualite(Integer codeActualite, Integer codeCat, Date dateActualite, String descActualite) {
+        this.codeActualite = codeActualite;
+        this.codeCat = codeCat;
+        this.dateActualite = dateActualite;
+        this.descActualite = descActualite;
+    }
+
     private static final long serialVersionUID = 1L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "CODE_ACTUALITE", nullable = false)
     private Integer codeActualite;
 
