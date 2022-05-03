@@ -1,7 +1,9 @@
 package com.sfeproject.employesystem.model;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
+
 @Entity
 @Table(name = "realiser")
 @IdClass(RealiserId.class)
@@ -37,4 +39,43 @@ public class Realiser implements Serializable {
     @Column(name = "DATE_AFFECTATION")
     private Date dateAffectation;
 
+    public Integer getCodeEmp() {
+        return codeEmp;
+    }
+
+    public void setCodeEmp(Integer codeEmp) {
+        this.codeEmp = codeEmp;
+    }
+
+    public Integer getCodeTache() {
+        return codeTache;
+    }
+
+    public void setCodeTache(Integer codeTache) {
+        this.codeTache = codeTache;
+    }
+
+    public Integer getCodeBureau() {
+        return codeBureau;
+    }
+
+    public void setCodeBureau(Integer codeBureau) {
+        this.codeBureau = codeBureau;
+    }
+
+    public Integer getNumAffectation() {
+        return numAffectation;
+    }
+
+    public void setNumAffectation(Integer numAffectation) {
+        this.numAffectation = numAffectation;
+    }
+
+    public Date getDateAffectation() {
+        return dateAffectation;
+    }
+
+    public void setDateAffectation(Date dateAffectation) {
+        this.dateAffectation = dateAffectation;
+    }
 }

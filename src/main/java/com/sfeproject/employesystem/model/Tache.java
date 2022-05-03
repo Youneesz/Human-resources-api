@@ -27,4 +27,27 @@ public class Tache implements Serializable {
     @Column(name = "DESCRIPTION_TACHE")
     private String descriptionTache;
 
+    public Integer getCodeTache() {
+        return codeTache;
+    }
+
+    public void setCodeTache(Integer codeTache) {
+        this.codeTache = codeTache;
+    }
+
+    public String getIntituleTache() {
+        return intituleTache;
+    }
+
+    public void setIntituleTache(String intituleTache) {
+        this.intituleTache = intituleTache;
+    }
+
+    public String getDescriptionTache() {
+        return descriptionTache;
+    }
+
+    public void setDescriptionTache(String descriptionTache) {
+        this.descriptionTache = descriptionTache;
+    }
 }
