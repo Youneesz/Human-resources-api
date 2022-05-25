@@ -5,12 +5,12 @@ import com.sfeproject.employesystem.repository.RoleRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/roles")
 @CrossOrigin
+// to delete because we won't use it in our project !!!
 public class RoleController {
 
     private final RoleRepository roleRepository;
@@ -20,11 +20,9 @@ public class RoleController {
     }
 
     @PostMapping("/add")
-    public String add(@RequestBody Map<String, String> body) {
-        String name = body.get("INTITULE_ROLE");
-        String desc = body.get("DESCRIPTION_ROLE");
-        Role nv_role = roleRepository.save(new Role(name, desc));
-        return "Role " + nv_role.getIntituleRole() + " added.";
+    public String add(@RequestBody Role role) {
+        Role nouvRole = roleRepository.save(role);
+        return "Role " + nouvRole.getIntituleRole() + " added.";
     }
 
     @GetMapping("/getAll")

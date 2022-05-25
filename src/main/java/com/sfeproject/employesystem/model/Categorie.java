@@ -8,12 +8,6 @@ import java.io.Serializable;
 @Table(name = "categorie")
 public class Categorie implements Serializable {
 
-    public Categorie(Integer codeCat, String intituleCat) {
-        this.codeCat = codeCat;
-        this.intituleCat = intituleCat;
-    }
-
-    public Categorie() {}
 
     private static final long serialVersionUID = 1L;
 
@@ -25,4 +19,26 @@ public class Categorie implements Serializable {
     @Column(name = "INTITULE_CAT")
     private String intituleCat;
 
+    public Categorie() {}
+
+    public Categorie(Integer codeCat, String intituleCat) {
+        this.codeCat = codeCat;
+        this.intituleCat = intituleCat;
+    }
+
+    public Integer getCodeCat() {
+        return codeCat;
+    }
+
+    public void setCodeCat(Integer codeCat) {
+        this.codeCat = codeCat;
+    }
+
+    public String getIntituleCat() {
+        return intituleCat;
+    }
+
+    public void setIntituleCat(String intituleCat) {
+        this.intituleCat = intituleCat;
+    }
 }

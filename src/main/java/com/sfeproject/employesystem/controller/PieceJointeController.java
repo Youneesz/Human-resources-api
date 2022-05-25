@@ -2,47 +2,53 @@ package com.sfeproject.employesystem.controller;
 
 
 import com.sfeproject.employesystem.model.PieceJointe;
-import com.sfeproject.employesystem.repository.PieceJointeRepository;
-import org.springframework.http.ResponseEntity;
+import com.sfeproject.employesystem.service.PieceJointeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.List;
 
+
 @RestController
-@RequestMapping("/pieces jointes")
+@RequestMapping("/piecesJointes")
 public class PieceJointeController {
 
-    private final PieceJointeRepository pieceJointeRepository;
+    @Autowired
+    private PieceJointeService pieceJointeService;
 
-    public PieceJointeController(PieceJointeRepository pieceJointeRepository) {
-        this.pieceJointeRepository = pieceJointeRepository;
+    @GetMapping("/pieceJointeFiltred/{id}")
+    public List<PieceJointe> getPieceJointesFiltred(@PathVariable int id) {
+        return pieceJointeService.getPiecesByActualite(id);
     }
 
+    @GetMapping("/all")
+    public List<PieceJointe> getPieceJointes() {
+        return pieceJointeService.getPiecesJointes();
+    }
+
+
     @GetMapping("/{id}")
-    public PieceJointe getPieceJointe(@PathVariable int id){
-        return pieceJointeRepository.findById(id).orElseThrow(RuntimeException::new);
+    public PieceJointe getPieceJointe(@PathVariable int id) {
+        return pieceJointeService.getPieceJointe(id);
     }
 
     @PostMapping("/add")
-    public ResponseEntity createPieceJointe(@RequestBody PieceJointe pieceJointe) throws URISyntaxException {
-        PieceJointe newPieceJointe = pieceJointeRepository.save(pieceJointe);
-        return ResponseEntity.created(new URI("pieces jointes/add" + newPieceJointe.getCodePieceJ())).body(newPieceJointe);
-
-
+    public PieceJointe addPieceJointe(@RequestBody PieceJointe pieceJointe) {
+        return pieceJointeService.addPieceJointe(pieceJointe);
+    }
+    @PutMapping("/update/{id}")
+    public PieceJointe updatePieceJointe(@PathVariable int id, @RequestBody PieceJointe pieceJointe) {
+        return pieceJointeService.updatePieceJointe(id, pieceJointe);
     }
 
-    @GetMapping
-    public List<PieceJointe> getAll(){
-        return pieceJointeRepository.findAll();
+    @DeleteMapping("/delete/{id}")
+    public String deletePieceJointe(@PathVariable int id) {
+        return pieceJointeService.deletePieceJointe(id);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity deletePieceJointe(@PathVariable int id){
-        pieceJointeRepository.deleteById(id);
-        return ResponseEntity.ok().build();
-    }
 
-    //we still need the update method here
+
 }
+
+
+

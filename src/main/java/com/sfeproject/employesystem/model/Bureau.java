@@ -7,13 +7,7 @@ import java.io.Serializable;
 @Table(name = "bureau")
 public class Bureau implements Serializable {
 
-    public Bureau(Integer codeBureau, String intituleBureau, String descriptionBureau) {
-        this.codeBureau = codeBureau;
-        this.intituleBureau = intituleBureau;
-        this.descriptionBureau = descriptionBureau;
-    }
 
-    public Bureau() {}
 
     private static final long serialVersionUID = 1L;
 
@@ -28,4 +22,35 @@ public class Bureau implements Serializable {
     @Column(name = "DESCRIPTION_BUREAU")
     private String descriptionBureau;
 
+    public Bureau(Integer codeBureau, String intituleBureau, String descriptionBureau) {
+        this.codeBureau = codeBureau;
+        this.intituleBureau = intituleBureau;
+        this.descriptionBureau = descriptionBureau;
+    }
+
+    public Bureau() {}
+
+    public Integer getCodeBureau() {
+        return codeBureau;
+    }
+
+    public void setCodeBureau(Integer codeBureau) {
+        this.codeBureau = codeBureau;
+    }
+
+    public String getIntituleBureau() {
+        return intituleBureau;
+    }
+
+    public void setIntituleBureau(String intituleBureau) {
+        this.intituleBureau = intituleBureau;
+    }
+
+    public String getDescriptionBureau() {
+        return descriptionBureau;
+    }
+
+    public void setDescriptionBureau(String descriptionBureau) {
+        this.descriptionBureau = descriptionBureau;
+    }
 }

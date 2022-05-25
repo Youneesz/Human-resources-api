@@ -9,14 +9,6 @@ public class Piece implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Piece(Integer codePiece, String intitulePiece, String descriptionPiece) {
-        this.codePiece = codePiece;
-        this.intitulePiece = intitulePiece;
-        this.descriptionPiece = descriptionPiece;
-    }
-
-    public Piece() {}
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "CODE_PIECE", nullable = false)
@@ -27,6 +19,14 @@ public class Piece implements Serializable {
 
     @Column(name = "DESCRIPTION_PIECE")
     private String descriptionPiece;
+
+    public Piece(Integer codePiece, String intitulePiece, String descriptionPiece) {
+        this.codePiece = codePiece;
+        this.intitulePiece = intitulePiece;
+        this.descriptionPiece = descriptionPiece;
+    }
+
+    public Piece() {}
 
     public Integer getCodePiece() {
         return codePiece;
@@ -51,4 +51,6 @@ public class Piece implements Serializable {
     public void setDescriptionPiece(String descriptionPiece) {
         this.descriptionPiece = descriptionPiece;
     }
+
+
 }

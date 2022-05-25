@@ -1,66 +1,79 @@
 package com.sfeproject.employesystem.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 
 @Entity
 @Table(name = "realiser")
-@IdClass(RealiserId.class)
+
 public class Realiser implements Serializable {
 
-    public Realiser(Integer codeEmp, Integer codeTache, Integer codeBureau, Integer numAffectation, Date dateAffectation) {
-        this.codeEmp = codeEmp;
-        this.codeTache = codeTache;
-        this.codeBureau = codeBureau;
-        this.numAffectation = numAffectation;
-        this.dateAffectation = dateAffectation;
-    }
-
-    public Realiser() {}
 
     private static final long serialVersionUID = 1L;
 
-    @Id
-    @Column(name = "CODE_EMP", nullable = false)
-    private Integer codeEmp;
 
     @Id
-    @Column(name = "CODE_TACHE", nullable = false)
-    private Integer codeTache;
-
-    @Id
-    @Column(name = "CODE_BUREAU", nullable = false)
-    private Integer codeBureau;
-
     @Column(name = "NUM_AFFECTATION")
     private Integer numAffectation;
+
+    //    @Column(name = "CODE_EMP", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "CODE_EMP")
+    @JsonBackReference
+    private Employe employe;
+
+
+    //    @Column(name = "CODE_TACHE", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "CODE_TACHE")
+    private Tache tache;
+
+
+    //    @Column(name = "CODE_BUREAU", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "CODE_BUREAU")
+    private Bureau bureau;
+
 
     @Column(name = "DATE_AFFECTATION")
     private Date dateAffectation;
 
-    public Integer getCodeEmp() {
-        return codeEmp;
+    public Realiser(Employe employee, Tache tache, Bureau bureau, Integer numAffectation, Date dateAffectation) {
+        this.employe = employee;
+        this.tache = tache;
+        this.bureau = bureau;
+        this.numAffectation = numAffectation;
+        this.dateAffectation = dateAffectation;
     }
 
-    public void setCodeEmp(Integer codeEmp) {
-        this.codeEmp = codeEmp;
+    public Realiser() {
     }
 
-    public Integer getCodeTache() {
-        return codeTache;
+    public Employe getEmployee() {
+        return employe;
     }
 
-    public void setCodeTache(Integer codeTache) {
-        this.codeTache = codeTache;
+    public void setEmployee(Employe employee) {
+        this.employe = employee;
     }
 
-    public Integer getCodeBureau() {
-        return codeBureau;
+    public Tache getTache() {
+        return tache;
     }
 
-    public void setCodeBureau(Integer codeBureau) {
-        this.codeBureau = codeBureau;
+    public void setTache(Tache tache) {
+        this.tache = tache;
+    }
+
+    public Bureau getBureau() {
+        return bureau;
+    }
+
+    public void setBureau(Bureau bureau) {
+        this.bureau = bureau;
     }
 
     public Integer getNumAffectation() {

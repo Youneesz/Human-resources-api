@@ -1,5 +1,6 @@
 package com.sfeproject.employesystem.model;
 
+
 import javax.persistence.*;
 import java.sql.Date;
 
@@ -7,29 +8,15 @@ import java.sql.Date;
 public class Personne {
     private static final long serialVersionUID = 1L;
 
-    public Personne(Integer codeEmp, Integer codeRole, Integer codeSomme, String sexeEmp, Date dateRecrutement, String prenomEmp, String nomEmp, String telEmp, String emailEmp, String adresseEmp, String adresseTravail, String motPasse, String cinEmp) {
-        this.codeEmp = codeEmp;
-        this.codeRole = codeRole;
-        this.codeSomme = codeSomme;
-        this.sexeEmp = sexeEmp;
-        this.dateRecrutement = dateRecrutement;
-        this.prenomEmp = prenomEmp;
-        this.nomEmp = nomEmp;
-        this.telEmp = telEmp;
-        this.emailEmp = emailEmp;
-        this.adresseEmp = adresseEmp;
-        this.adresseTravail = adresseTravail;
-        this.motPasse = motPasse;
-        this.cinEmp = cinEmp;
-    }
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "CODE_EMP", nullable = false)
     private Integer codeEmp;
 
-    @Column(name = "CODE_ROLE", nullable = false)
-    private Integer codeRole;
+    @ManyToOne
+    @JoinColumn(name = "CODE_ROLE")
+    private Role role;
 
     @Column(name = "CODE_SOMME")
     private Integer codeSomme;
@@ -64,6 +51,35 @@ public class Personne {
     @Column(name = "CIN_EMP")
     private String cinEmp;
 
+    @Column(name = "prenom_fr")
+    private String prenomEmpfr;
+
+    @Column(name = "nom_fr")
+    private String nomEmpfr;
+
+    @Column(name = "cadre_fr")
+    private String cadreFr;
+
+
+    public Personne(Integer codeEmp, Role role, Integer codeSomme, String sexeEmp, Date dateRecrutement, String prenomEmp, String nomEmp, String telEmp, String emailEmp, String adresseEmp, String adresseTravail, String motPasse, String cinEmp, String nomEmpFr, String prenomEmpFr, String cadreFr) {
+        this.codeEmp = codeEmp;
+        this.role = role;
+        this.codeSomme = codeSomme;
+        this.sexeEmp = sexeEmp;
+        this.dateRecrutement = dateRecrutement;
+        this.prenomEmp = prenomEmp;
+        this.nomEmp = nomEmp;
+        this.telEmp = telEmp;
+        this.emailEmp = emailEmp;
+        this.adresseEmp = adresseEmp;
+        this.adresseTravail = adresseTravail;
+        this.motPasse = motPasse;
+        this.cinEmp = cinEmp;
+        this.cadreFr = cadreFr;
+        this.nomEmpfr = nomEmpFr;
+        this.prenomEmpfr = prenomEmpFr;
+    }
+
     public Personne() {
     }
 
@@ -71,8 +87,8 @@ public class Personne {
         return codeEmp;
     }
 
-    public Integer getCodeRole() {
-        return codeRole;
+    public Role getRole() {
+        return role;
     }
 
     public Integer getCodeSomme() {
@@ -83,8 +99,8 @@ public class Personne {
         this.codeEmp = codeEmp;
     }
 
-    public void setCodeRole(Integer codeRole) {
-        this.codeRole = codeRole;
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     public void setCodeSomme(Integer codeSomme) {
@@ -169,5 +185,29 @@ public class Personne {
 
     public void setCinEmp(String cinEmp) {
         this.cinEmp = cinEmp;
+    }
+
+    public String getPrenomEmpfr() {
+        return prenomEmpfr;
+    }
+
+    public void setPrenomEmpfr(String prenomEmpfr) {
+        this.prenomEmpfr = prenomEmpfr;
+    }
+
+    public String getNomEmpfr() {
+        return nomEmpfr;
+    }
+
+    public void setNomEmpfr(String nomEmpfr) {
+        this.nomEmpfr = nomEmpfr;
+    }
+
+    public String getCadreFr() {
+        return cadreFr;
+    }
+
+    public void setCadreFr(String cadreFr) {
+        this.cadreFr = cadreFr;
     }
 }

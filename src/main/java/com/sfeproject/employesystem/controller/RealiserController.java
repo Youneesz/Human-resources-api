@@ -1,46 +1,44 @@
 package com.sfeproject.employesystem.controller;
 
-
 import com.sfeproject.employesystem.model.Realiser;
-import com.sfeproject.employesystem.repository.RealiserRepository;
-import org.springframework.http.ResponseEntity;
+import com.sfeproject.employesystem.service.RealiserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.List;
+
 
 @RestController
 @RequestMapping("/affectations")
 public class RealiserController {
 
-    private final RealiserRepository realiserRepository;
-
-    public RealiserController(RealiserRepository realiserRepository) {
-        this.realiserRepository = realiserRepository;
-    }
-
-    @GetMapping
-    public List<Realiser> getAffectations(){
-        return realiserRepository.findAll();
-    }
+    @Autowired
+    private RealiserService realiserService;
 
     @GetMapping("/{id}")
-    public Realiser getAffectation(@PathVariable int id){
-        return realiserRepository.findById(id).orElseThrow(RuntimeException::new);
+    public Realiser getAffectation(@PathVariable int id) {
+        return realiserService.getAffectation(id);
+    }
+
+    @GetMapping("/all")
+    public List<Realiser> getAffectations() {
+        return realiserService.getAllAffectations();
     }
 
     @PostMapping("/add")
-    public ResponseEntity addAffectation(Realiser affectation) throws URISyntaxException {
-        Realiser newAffectation = realiserRepository.save(affectation);
-        return ResponseEntity.created(new URI("/affectations/add/" + newAffectation.getNumAffectation())).body(newAffectation);
+    public Realiser addAffectation(@RequestBody Realiser affectation) {
+        return realiserService.addAffectation(affectation);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity deleteAffectation(@PathVariable int id){
-        realiserRepository.deleteById(id);
-        return ResponseEntity.ok().build();
+    @PutMapping("/update/{id}")
+    public Realiser updateAffectation(@PathVariable int id, @RequestBody Realiser affectation) {
+        return realiserService.updateAffectation(id, affectation);
     }
 
-    //we still need to add the update method here
+    @DeleteMapping("/delete/{id}")
+    public String deleteAffectation(@PathVariable int id) {
+        return realiserService.deleteAffectation(id);
+    }
+
+
 }

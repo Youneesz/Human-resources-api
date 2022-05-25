@@ -8,13 +8,7 @@ public class Tache implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Tache(Integer codeTache, String intituleTache, String descriptionTache) {
-        this.codeTache = codeTache;
-        this.intituleTache = intituleTache;
-        this.descriptionTache = descriptionTache;
-    }
 
-    public Tache() {}
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,6 +20,14 @@ public class Tache implements Serializable {
 
     @Column(name = "DESCRIPTION_TACHE")
     private String descriptionTache;
+
+
+    public Tache( String intituleTache, String descriptionTache) {
+        this.intituleTache = intituleTache;
+        this.descriptionTache = descriptionTache;
+    }
+
+    public Tache() {}
 
     public Integer getCodeTache() {
         return codeTache;
