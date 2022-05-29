@@ -1,6 +1,7 @@
 package com.sfeproject.employesystem.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -23,7 +24,7 @@ public class DemandeConge implements Serializable {
 
     //    @Column(name = "CODE_EMP", nullable = false)
     @ManyToOne()
-    @JsonBackReference
+    @JsonIgnore
     @JoinColumn(name = "CODE_EMP")
     private Employe employe;
 
